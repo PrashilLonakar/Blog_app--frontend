@@ -139,6 +139,9 @@ export class RegistrationComponent {
 
   onSubmit() {
     this.isSubmit.set(true);
+    if (this.imagePreview()) {
+      this.uploadSuccess = true;
+    }
     console.log('val', this.registrationForm.value);
   }
 }
