@@ -6,4 +6,5 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./pre-login/routes').then((mod) => mod.AUTH_ROUTES),
   },
+  { path: '**', redirectTo: 'auth', pathMatch: 'full' },
 ];
