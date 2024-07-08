@@ -21,7 +21,7 @@
             <mat-label>Password</mat-label>
             <input
               matInput
-              placeholder="Write your Pw"
+              placeholder="Write your Password"
               [type]="isViewPasswordEnabled() ? 'text' : 'password'"
               formControlName="password"
             />
@@ -47,7 +47,9 @@
           Submit
         </button>
         <p class="my-2 d-flex justify-content-center">OR</p>
-        <button mat-button>Need an account? Sign up!</button>
+        <button mat-button [routerLink]="['/auth/registration']">
+          Need an account? Sign up!
+        </button>
       </div>
     </form>
   </div>
