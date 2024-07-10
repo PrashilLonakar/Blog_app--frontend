@@ -8,7 +8,7 @@ export class SidebarConstants {
     {
       id: 1,
       text: 'Post',
-      route: '/admin/post',
+      route: 'admin/post',
       tagId: 'PostMenuBtn',
     },
     {

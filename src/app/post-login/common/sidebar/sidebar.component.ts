@@ -28,6 +28,5 @@ export class SidebarComponent {
 
   constructor() {
     this.sideBarMenu = SidebarConstants.menusForAdmin;
-    console.log('this.sideBarMenu', this.sideBarMenu);
   }
 }
