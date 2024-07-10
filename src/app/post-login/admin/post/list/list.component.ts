@@ -13,6 +13,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @Component({
   selector: 'app-list',
@@ -22,6 +24,8 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
     CommonModule,
     MatPaginatorModule,
     MatTableModule,
+    MatInputModule,
+    MatFormFieldModule,
   ],
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss',
@@ -58,6 +62,15 @@ export class ListComponent {
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 }
 
