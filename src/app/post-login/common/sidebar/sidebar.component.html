@@ -16,23 +16,21 @@
           />
           <h3 class="app-title d-flex align-items-center mb-0">Blog App</h3>
         </div>
-        <div class="sidenav-tabs">
+        <div class="sidenav-tabs mt-5">
           <div class="sidenav-btn-tab">
-            <!-- <button
+            @for (menu of sideBarMenu; track menu) {
+            <button
               mat-button
-              class="main-tabs flex-justify-start flex-align-center text-semi-lg fw-bolder h-unset"
+              class="main-tabs d-flex justify-content-start fw-bolder"
               routerLinkActive="active-main-tabs"
-              *ngFor="let menu of sidebarMenu; let j = index"
-              #tabElement
               [routerLink]="menu.route"
               [id]="menu.tagId"
             >
               <span class="flex-all-center">
-                <img [src]="menu?.activeIcon" class="active-img" />
-                <img [src]="menu?.inActiveIcon" class="inactive-img" />
                 <span>{{ menu?.text }}</span>
               </span>
-            </button> -->
+            </button>
+            }
           </div>
         </div>
       </div>

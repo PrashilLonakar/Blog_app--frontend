@@ -1,5 +1,7 @@
+$light_0: #ffffff;
 $light_100: #d8d8d8;
 
 :root {
     --primary-color: #{$light_100};
+    --light-0: #{$light_0};
 }
