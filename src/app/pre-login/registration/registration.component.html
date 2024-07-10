@@ -1,0 +1,159 @@
+<div class="registration-container">
+  <div class="p-3">
+    <div class="my-2">
+      <h1>Registration</h1>
+    </div>
+    <form [formGroup]="registrationForm" (keyup.enter)="onSubmit()">
+      <div class="row">
+        <div class="col-12 file-upload-wrapper-col">
+          <div
+            class="file-upload-wrapper"
+            [class.success]="uploadSuccess"
+            [class.error]="uploadError"
+            (drop)="onFileDrop($event)"
+            (dragover)="onDragOver($event)"
+          >
+            <input
+              type="file"
+              accept="image/*"
+              (change)="onFileChange($event)"
+              hidden
+              #fileInput
+              formControlName="profilePic"
+            />
+            <div class="file-dropper" (click)="fileInput.click()">
+              <mat-icon *ngIf="!imagePreview()">upload</mat-icon>
+              <p *ngIf="!imagePreview()">Upload your Profile pic</p>
+              <div *ngIf="imageName()">
+                <div *ngIf="selectedFile || imagePreview">
+                  <img
+                    [src]="imagePreview()"
+                    alt="Image Preview"
+                    class="image-preview"
+                  />
+                  <p>
+                    <span class="image-name">{{ imageName() }}</span> ({{
+                      fileSize()
+                    }}
+                    KB)
+                  </p>
+                  <mat-icon class="delete-icon" (click)="removeImage()"
+                    >delete</mat-icon
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <mat-error
+            class="d-flex error-msg"
+            *ngIf="this.isSubmit() && !imagePreview()"
+          >
+            Profile Pic is mandatory
+          </mat-error>
+        </div>
+      </div>
+      <div class="row mb-1">
+        <div class="col-6">
+          <mat-form-field appearance="outline">
+            <mat-label>First name</mat-label>
+            <input
+              matInput
+              placeholder="Write your Email"
+              formControlName="firstName"
+            />
+
+            <mat-error class="d-flex mt-1">
+              <validation-message
+                [control]="registrationForm.controls['firstName']"
+                [propertyLabel]="'First Name'"
+              >
+              </validation-message>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-6">
+          <mat-form-field appearance="outline">
+            <mat-label>Last name</mat-label>
+            <input
+              matInput
+              placeholder="Write your Email"
+              formControlName="lastName"
+            />
+            <mat-error class="d-flex mt-1">
+              <validation-message
+                [control]="registrationForm.controls['lastName']"
+                [propertyLabel]="'Last Name'"
+              >
+              </validation-message>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row mb-1">
+        <div class="col-12">
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              placeholder="Write your Email"
+              formControlName="email"
+            />
+            <mat-error
+              *ngIf="!registrationForm.get('email')?.hasError('duplicateEmail')"
+              class="d-flex mt-1"
+            >
+              <validation-message
+                [control]="registrationForm.controls['email']"
+                [propertyLabel]="'Email'"
+              >
+              </validation-message>
+            </mat-error>
+            <mat-error
+              class="server-error d-flex mt-1"
+              *ngIf="registrationForm.get('email')?.hasError('duplicateEmail')"
+            >
+              <div>This email is already in use.</div>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row mb-1">
+        <div class="col-12">
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input
+              matInput
+              placeholder="Write your Password"
+              [type]="isViewPasswordEnabled() ? 'text' : 'password'"
+              formControlName="password"
+            />
+            <mat-icon matSuffix (click)="toggleViewPassword()">
+              {{ isViewPasswordEnabled() ? "visibility_off" : "visibility" }}
+            </mat-icon>
+            <mat-error class="d-flex mt-1">
+              <validation-message
+                [control]="registrationForm.controls['password']"
+                [propertyLabel]="'Password'"
+              >
+              </validation-message>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <button
+          mat-flat-button
+          color="primary"
+          type="submit"
+          (click)="onSubmit()"
+        >
+          Submit
+        </button>
+        <p class="my-2 d-flex justify-content-center">OR</p>
+        <button mat-button [routerLink]="['/auth/login']">
+          Already have an account? Sign in!
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

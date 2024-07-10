@@ -1,0 +1,10 @@
+.error-body {
+    font-size: inherit;
+}
+
+@media screen and (max-width: 1023px) {
+    .error-body {
+        line-height: inherit;
+        font-size: inherit;
+    }
+}
