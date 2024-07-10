@@ -15,8 +15,8 @@ export const POST_ROUTES: Routes = [
       },
       {
         path: 'admin',
-        loadComponent: () =>
-          import('./admin/admin.component').then((m) => m.AdminComponent),
+        loadChildren: () =>
+          import('./admin/admin.routes').then((m) => m.ADMIN_ROUTES),
       },
     ],
   },

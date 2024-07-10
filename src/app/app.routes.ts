@@ -4,7 +4,7 @@ export const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('./post-login/routes').then((mod) => mod.POST_ROUTES),
+      import('./post-login/post-login.routes').then((mod) => mod.POST_ROUTES),
   },
   {
     path: 'auth',
