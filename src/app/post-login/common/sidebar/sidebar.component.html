@@ -1,0 +1,45 @@
+<div class="sidenav-container">
+  <mat-sidenav-container>
+    <mat-sidenav
+      #sidenav
+      mode="side"
+      [(opened)]="opened"
+      (opened)="events.push('open!')"
+      (closed)="events.push('close!')"
+    >
+      <div class="sidenav-content">
+        <div class="sidenav-header d-flex gap-3 align-items-center">
+          <img
+            class="app-logo-main"
+            src="assets/images/app-logo.png"
+            alt="blog-icon"
+          />
+          <h3 class="app-title d-flex align-items-center mb-0">Blog App</h3>
+        </div>
+        <div class="sidenav-tabs">
+          <div class="sidenav-btn-tab">
+            <!-- <button
+              mat-button
+              class="main-tabs flex-justify-start flex-align-center text-semi-lg fw-bolder h-unset"
+              routerLinkActive="active-main-tabs"
+              *ngFor="let menu of sidebarMenu; let j = index"
+              #tabElement
+              [routerLink]="menu.route"
+              [id]="menu.tagId"
+            >
+              <span class="flex-all-center">
+                <img [src]="menu?.activeIcon" class="active-img" />
+                <img [src]="menu?.inActiveIcon" class="inactive-img" />
+                <span>{{ menu?.text }}</span>
+              </span>
+            </button> -->
+          </div>
+        </div>
+      </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <navbar (sideNavOpen)="sidenav.toggle()"></navbar>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

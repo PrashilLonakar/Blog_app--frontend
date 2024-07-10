@@ -1,0 +1,32 @@
+.app-title {
+    height: 80px;
+}
+
+
+.sidenav-container {
+    background-color: var(--primary-color);
+
+    ::ng-deep .mat-drawer-container {
+        height: 100vh;
+
+        .mat-drawer {
+            border-radius: 0;
+
+            .sidenav-content {
+                height: inherit;
+
+                .sidenav-header {
+                    padding: 10px 0px 0px 10px;
+                }
+
+                .mat-drawer-inner-container {
+                    background: var(--primary-color);
+                }
+            }
+
+            .mat-drawer-side {
+                height: 100vh;
+            }
+        }
+    }
+}

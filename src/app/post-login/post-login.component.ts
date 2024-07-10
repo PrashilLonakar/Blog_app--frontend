@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './common/navbar/navbar.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
+import { SidebarComponent } from './common/sidebar/sidebar.component';
+
 @Component({
   selector: 'app-post-login',
   standalone: true,
@@ -13,6 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
     NavbarComponent,
     MatSidenavModule,
     MatButtonModule,
+    SidebarComponent,
     // BrowserModule,
     // BrowserAnimationsModule,
   ],
