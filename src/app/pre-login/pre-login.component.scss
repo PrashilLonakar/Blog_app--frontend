@@ -1,0 +1,12 @@
+.pre-login-container {
+    ::ng-deep {
+        .mat-mdc-card {
+            border-radius: 0 50px 50px 0px;
+            width: 110% !important;
+        }
+    }
+
+    img {
+        object-fit: cover;
+    }
+}
