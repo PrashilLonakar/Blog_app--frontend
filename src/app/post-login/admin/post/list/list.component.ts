@@ -34,7 +34,7 @@ export class ListComponent {
   pageName = '';
   breadCrumbs = [];
   buttonContent = {};
-
+  isBthShow: boolean = false;
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
@@ -56,6 +56,10 @@ export class ListComponent {
       }
       if (data['btnData']) {
         this.buttonContent = data['btnData'];
+      }
+
+      if (data['isBtnData']) {
+        this.isBthShow = data['isBtnData'];
       }
     });
   }
