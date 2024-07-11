@@ -1,0 +1,28 @@
+<div class="d-flex justify-content-between py-3">
+  <div class="breadcrumbs d-flex">
+    <div
+      class="d-flex justify-content-center align-items-center"
+      *ngFor="let breadCrumb of breadCrumbsArr; let isLast = last"
+    >
+      @if (breadCrumb.isClickable) {
+      <button mat-button [routerLink]="breadCrumb?.path">
+        {{ breadCrumb?.label }}
+      </button>
+      } @else {
+      <button mat-button disabled>
+        {{ breadCrumb?.label }}
+      </button>
+      } @if (!isLast) {
+      <span class="px-1">/</span>
+      }
+    </div>
+  </div>
+  <div class="page-title">
+    <h3>{{ title }}</h3>
+  </div>
+</div>
+@if (btn) {
+<div class="d-flex justify-content-end add-btn pb-3">
+  <button mat-flat-button [routerLink]="btn?.path">{{ btn?.label }}</button>
+</div>
+}
