@@ -1,1 +1,59 @@
-<p>list works!</p>
+<sub-header
+  [title]="pageName"
+  [breadCrumbsArr]="breadCrumbs"
+  [btn]="buttonContent"
+  [isBtnShow]="isBthShow"
+></sub-header>
+
+<div class="mat-elevation-z8">
+  <mat-form-field>
+    <mat-label>Search user</mat-label>
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="Your search"
+      #input
+    />
+  </mat-form-field>
+
+  <table mat-table [dataSource]="dataSource">
+    <!-- Position Column -->
+    <ng-container matColumnDef="firstname">
+      <th mat-header-cell *matHeaderCellDef>First Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.firstname }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="lastname">
+      <th mat-header-cell *matHeaderCellDef>Last Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.lastname }}</td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>Action</th>
+      <td mat-cell *matCellDef="let element">
+        <mat-icon
+          class="text-success edit"
+          [routerLink]="['/admin/user/edit', element.id]"
+          >edit</mat-icon
+        >
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons
+    aria-label="Select page of periodic elements"
+  >
+  </mat-paginator>
+</div>
