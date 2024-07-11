@@ -31,13 +31,14 @@
           </mat-form-field>
         </div>
         <div class="col-6">
-          <mat-checkbox class="example-margin">Remember me</mat-checkbox>
+          <button mat-button [routerLink]="['/auth/forgot-password']">
+            Forgot password?
+          </button>
         </div>
-        <div
-          class="col-6 d-flex justify-content-end"
-          [routerLink]="['/auth/forgot-password']"
-        >
-          <button mat-button>Forgot password?</button>
+        <div class="col-6 d-flex justify-content-end">
+          <button mat-button [routerLink]="['/auth/forgot-password']">
+            Forgot password?
+          </button>
         </div>
       </div>
       <div class="row mt-5">
