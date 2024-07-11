@@ -122,6 +122,14 @@
           <mat-icon matSuffix (click)="toggleViewPassword()">
             {{ isViewPasswordEnabled() ? "visibility_off" : "visibility" }}
           </mat-icon>
+
+          <mat-error class="d-flex mt-1">
+            <validation-message
+              [control]="userForm.controls['password']"
+              [propertyLabel]="'Password'"
+            >
+            </validation-message>
+          </mat-error>
         </mat-form-field>
       </div>
     </div>
