@@ -4,11 +4,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { ValidationHelper } from '../../core/helper/validation.helper';
-import { ValidationMessageComponent } from '../../core/validation/validation-message/validation-message.component';
 
 @Component({
   selector: 'app-forgot-password',
@@ -22,7 +20,6 @@ import { ValidationMessageComponent } from '../../core/validation/validation-mes
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    ValidationMessageComponent,
   ],
   templateUrl: './forgot-password.component.html',
   styleUrl: './forgot-password.component.scss',
@@ -42,8 +39,25 @@ export class ForgotPasswordComponent {
 
   setUpforgetPasswordForm(): void {
     this.forgetPasswordForm = this.formBuilder.group({
-      email: ['', [Validators.required, ValidationHelper.emailValidator]],
+      email: '',
+      password: '',
+      confirmPassword: '',
     });
+  }
+  toggleViewPassword() {
+    if (this.isViewPasswordEnabled()) {
+      this.isViewPasswordEnabled.set(false);
+    } else {
+      this.isViewPasswordEnabled.set(true);
+    }
+  }
+
+  toggleViewConfirmPassword() {
+    if (this.isViewConfirmPasswordEnabled()) {
+      this.isViewConfirmPasswordEnabled.set(false);
+    } else {
+      this.isViewConfirmPasswordEnabled.set(true);
+    }
   }
 
   onSubmit() {
