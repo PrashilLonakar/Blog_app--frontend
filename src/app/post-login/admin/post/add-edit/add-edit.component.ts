@@ -73,7 +73,8 @@ export class AddEditComponent {
   }
 
   ngOnInit() {
-    this.setUpPostForm();
+    let data: any = [];
+    this.setUpPostForm(data);
     this.route.data.subscribe((data) => {
       const title = data['title'];
       if (title) {
@@ -92,13 +93,19 @@ export class AddEditComponent {
     });
   }
 
-  setUpPostForm(): void {
+  setUpPostForm(formData: any): void {
     this.postForm = this.formBuilder.group({
       title: ['', [Validators.required, Validators.maxLength(100)]],
-      content: ['', [Validators.required, Validators.maxLength(2000)]],
-      mainImageUrl: [''],
-      categoryId: ['', Validators.required],
-      userId: [''],
+      content: [
+        formData?.content ? formData.content : '',
+        [Validators.required, Validators.maxLength(2000)],
+      ],
+      mainImageUrl: [formData?.mainImageUrl ? formData.mainImageUrl : ''],
+      categoryId: [
+        formData?.categoryId ? formData.categoryId : '',
+        Validators.required,
+      ],
+      userId: [formData?.userId ? formData.userId : ''],
     });
   }
 
