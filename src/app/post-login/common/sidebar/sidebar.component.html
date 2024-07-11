@@ -1,0 +1,43 @@
+<div class="sidenav-container">
+  <mat-sidenav-container>
+    <mat-sidenav
+      #sidenav
+      mode="side"
+      [(opened)]="opened"
+      (opened)="events.push('open!')"
+      (closed)="events.push('close!')"
+    >
+      <div class="sidenav-content">
+        <div class="sidenav-header d-flex gap-3 align-items-center">
+          <img
+            class="app-logo-main"
+            src="assets/images/app-logo.png"
+            alt="blog-icon"
+          />
+          <h3 class="app-title d-flex align-items-center mb-0">Blog App</h3>
+        </div>
+        <div class="sidenav-tabs mt-5">
+          <div class="sidenav-btn-tab">
+            @for (menu of sideBarMenu; track menu) {
+            <button
+              mat-button
+              class="main-tabs d-flex justify-content-start fw-bolder"
+              routerLinkActive="active-main-tabs"
+              [routerLink]="menu.route"
+              [id]="menu.tagId"
+            >
+              <span class="flex-all-center">
+                <span>{{ menu?.text }}</span>
+              </span>
+            </button>
+            }
+          </div>
+        </div>
+      </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <navbar (sideNavOpen)="sidenav.toggle()"></navbar>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
