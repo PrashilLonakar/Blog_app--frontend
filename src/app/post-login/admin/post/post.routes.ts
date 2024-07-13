@@ -11,10 +11,39 @@ export const POST_ROUTES: Routes = [
         { label: 'Admin', path: 'admin', isClickable: false },
         { label: 'Post List', path: '/admin/post', isClickable: true },
       ],
+      isBtnData: true,
       btnData: {
         label: 'Add Post',
         path: '/admin/post/add',
       },
+    },
+  },
+  {
+    path: 'add',
+    loadComponent: () =>
+      import('./add-edit/add-edit.component').then((m) => m.AddEditComponent),
+    data: {
+      title: 'Add Post',
+      isBtnData: true,
+      breadcrumbs: [
+        { label: 'Admin', path: 'admin', isClickable: false },
+        { label: 'Post List', path: '/admin/post', isClickable: true },
+        { label: 'Add Post', path: '/admin/post/add', isClickable: true },
+      ],
+    },
+  },
+  {
+    path: 'edit/:id',
+    loadComponent: () =>
+      import('./add-edit/add-edit.component').then((m) => m.AddEditComponent),
+    data: {
+      title: 'Update Post',
+      isBtnData: false,
+      breadcrumbs: [
+        { label: 'Admin', path: 'admin', isClickable: false },
+        { label: 'Post List', path: '/admin/post', isClickable: true },
+        { label: 'update Post', path: '/admin/post/edit', isClickable: true },
+      ],
     },
   },
 ];

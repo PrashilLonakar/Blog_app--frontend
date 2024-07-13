@@ -54,4 +54,31 @@ export class ValidationHelper {
     };
     return config[validatorName];
   }
+
+  public static showFieldsError(formGroup: FormGroup): boolean {
+    let showFieldErros: boolean = false;
+    Object.keys(formGroup.controls).forEach((key) => {
+      if (formGroup.controls[key] instanceof FormGroup) {
+        showFieldErros = this.showFieldsError(
+          <FormGroup>formGroup.controls[key]
+        );
+      } else if (formGroup.controls[key] instanceof FormArray) {
+        let formArray = <FormArray>formGroup.controls[key];
+        formArray.controls.forEach((element) => {
+          if (element instanceof FormGroup) {
+            showFieldErros = this.showFieldsError(element);
+          }
+        });
+      }
+
+      formGroup.controls[key].markAsTouched();
+      const controlErrors: ValidationErrors | undefined | null =
+        formGroup.get(key)?.errors;
+      if (controlErrors != null) {
+        showFieldErros = true;
+      }
+    });
+
+    return showFieldErros;
+  }
 }

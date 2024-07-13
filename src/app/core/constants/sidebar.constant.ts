@@ -2,20 +2,42 @@ export class SidebarConstants {
   public static menusForAdmin: Array<{
     id: number;
     text: string;
-    route: string;
+    route?: string;
     tagId: string;
+    isChildren?: boolean;
+    children?: any;
   }> = [
     {
       id: 1,
-      text: 'Post',
-      route: 'admin/post',
-      tagId: 'PostMenuBtn',
+      text: 'Master',
+      tagId: 'MasterMenuBtn',
+      isChildren: true,
+      children: [
+        {
+          id: 1,
+          text: 'Post',
+          route: 'admin/post',
+          tagId: 'PostMenuBtn',
+        },
+        {
+          id: 2,
+          text: 'Category',
+          route: '/admin/category',
+          tagId: 'CategoryMenuBtn',
+        },
+        {
+          id: 2,
+          text: 'User',
+          route: '/admin/user',
+          tagId: 'UserMenuBtn',
+        },
+      ],
     },
     {
       id: 2,
-      text: 'Category',
-      route: '/admin/category',
-      tagId: 'CategoryMenuBtn',
+      text: 'Dashboard',
+      tagId: 'DashboardMenuBtn',
+      isChildren: false,
     },
   ];
 

@@ -13,4 +13,6 @@ export class SubHeaderComponent {
   @Input() title = '';
   @Input() breadCrumbsArr: any = [];
   @Input() btn: any = [];
+  @Input() isBtnShow: boolean = false;
+  @Input() classname: string = '';
 }
