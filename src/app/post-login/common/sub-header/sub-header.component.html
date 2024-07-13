@@ -21,7 +21,7 @@
     <h3>{{ title }}</h3>
   </div>
 </div>
-@if (btn) {
+@if (isBtnShow) {
 <div class="d-flex justify-content-end add-btn pb-3">
   <button mat-flat-button [routerLink]="btn?.path">{{ btn?.label }}</button>
 </div>

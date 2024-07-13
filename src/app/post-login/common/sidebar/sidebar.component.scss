@@ -14,6 +14,7 @@
 
             .sidenav-content {
                 height: inherit;
+                width: 22.5rem;
 
                 .sidenav-header {
                     padding: 10px 0px 0px 10px;
@@ -28,6 +29,34 @@
                     .sidenav-btn-tab {
                         display: flex;
                         flex-flow: column;
+
+                        .mat-accordion {
+                            .mat-expansion-panel {
+                                box-shadow: none;
+                                border-radius: 0;
+
+                                .mat-expansion-panel-header {
+                                    height: 3.75rem;
+                                    width: 100%;
+                                    background-color: var(--primary-color);
+                                    color: var(--dark-500);
+                                    padding: 1.25rem 1rem;
+                                    margin-bottom: 0;
+                                    border-radius: 0rem;
+                                    cursor: pointer;
+                                    transition: linear 0.1s;
+                                    font-size: 20px;
+
+                                    .mat-expansion-panel-header-title {
+                                        font-weight: 600;
+                                    }
+                                }
+
+                                .mat-expansion-panel-content {
+                                    background-color: var(--primary-color);
+                                }
+                            }
+                        }
 
                         .main-tabs {
                             height: 3.75rem;
