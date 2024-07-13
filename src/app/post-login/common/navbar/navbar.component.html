@@ -1,12 +1,44 @@
 <nav class="navbar navbar-container navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <button
-      mat-icon-button
-      class="toggle-icon"
-      aria-label="Example icon-button with menu icon"
-      (click)="sidenavClick()"
-    >
-      <mat-icon>menu</mat-icon>
-    </button>
+    <div class="d-flex justify-content-between w-100">
+      <button
+        mat-icon-button
+        class="toggle-icon"
+        aria-label="Example icon-button with menu icon"
+        (click)="sidenavClick()"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+      <div class="profile-content d-flex">
+        <div class="profile-icons me-3">
+          <button mat-mini-fab [matMenuTriggerFor]="menu" class="profile-btn">
+            <mat-icon>account_circle</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item [routerLink]="['/profile-setting']">
+              <mat-icon> contacts</mat-icon>
+              <span>Profile-setting</span>
+            </button>
+            <button mat-menu-item [routerLink]="['/']">
+              <mat-icon>power_settings_new</mat-icon>
+              <span>Logout</span>
+            </button>
+          </mat-menu>
+        </div>
+        <div class="profile-username d-flex align-items-end pb-2">
+          <span class="me-3 fw-bolder">
+            {{
+              profile?.role !== "admin"
+                ? profile?.firstname
+                  ? profile?.firstname
+                  : ""
+                : profile?.firstname
+                ? profile?.firstname + " (Admin)"
+                : "Admin"
+            }}
+          </span>
+        </div>
+      </div>
+    </div>
   </div>
 </nav>

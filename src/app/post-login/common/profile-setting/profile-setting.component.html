@@ -1,0 +1,155 @@
+<sub-header
+  [title]="pageName"
+  [breadCrumbsArr]="breadCrumbs"
+  [btn]="buttonContent"
+  [isBtnShow]="isBthShow"
+  [classname]="'w-99'"
+></sub-header>
+
+<form
+  [formGroup]="userForm"
+  (keyup.enter)="onSubmit()"
+  class="w-100 d-flex justify-content-center"
+>
+  <div class="form-container w-99">
+    <div class="row mb-3">
+      <div class="col-12 file-upload-wrapper-col">
+        <div
+          class="file-upload-wrapper"
+          [class.success]="uploadSuccess"
+          [class.error]="uploadError"
+          (drop)="onFileDrop($event)"
+          (dragover)="onDragOver($event)"
+        >
+          <input
+            type="file"
+            accept="image/*"
+            (change)="onFileChange($event)"
+            hidden
+            #fileInput
+            formControlName="profilePic"
+          />
+          <div class="file-dropper" (click)="fileInput.click()">
+            @if (!imagePreview()) {
+            <mat-icon>upload</mat-icon>
+            <p>Upload your Profile pic</p>
+            } @if (imageName()) {
+            <div>
+              <div *ngIf="selectedFile || imagePreview">
+                <img
+                  [src]="imagePreview()"
+                  alt="Image Preview"
+                  class="image-preview"
+                />
+                <p>
+                  <span class="image-name">{{ imageName() }}</span> ({{
+                    fileSize()
+                  }}
+                  KB)
+                </p>
+                <mat-icon class="delete-icon" (click)="removeImage()"
+                  >delete</mat-icon
+                >
+              </div>
+            </div>
+            }
+          </div>
+        </div>
+        <!-- @if (this.isSubmit() && !imagePreview()) {
+      <mat-error class="d-flex error-msg"> Profile Pic is mandatory </mat-error>
+      } -->
+      </div>
+    </div>
+
+    <div class="row mb-1">
+      <div class="col-6">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>First Name</mat-label>
+          <input
+            matInput
+            placeholder="Your first name"
+            formControlName="firstname"
+          />
+
+          <mat-error class="d-flex mt-1">
+            <validation-message
+              [control]="userForm.controls['firstname']"
+              [propertyLabel]="'First name'"
+            >
+            </validation-message>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Last Name</mat-label>
+          <input
+            matInput
+            placeholder="Your last name"
+            formControlName="lastname"
+          />
+
+          <mat-error class="d-flex mt-1">
+            <validation-message
+              [control]="userForm.controls['lastname']"
+              [propertyLabel]="'Last name'"
+            >
+            </validation-message>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row mb-1">
+      <div class="col-6">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Your email" formControlName="email" />
+
+          <mat-error class="d-flex mt-1">
+            <validation-message
+              [control]="userForm.controls['email']"
+              [propertyLabel]="'email'"
+            >
+            </validation-message>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            placeholder="Write your Password"
+            [type]="isViewPasswordEnabled() ? 'text' : 'password'"
+            formControlName="password"
+          />
+          <mat-icon matSuffix (click)="toggleViewPassword()">
+            {{ isViewPasswordEnabled() ? "visibility_off" : "visibility" }}
+          </mat-icon>
+
+          <mat-error class="d-flex mt-1">
+            <validation-message
+              [control]="userForm.controls['password']"
+              [propertyLabel]="'Password'"
+            >
+            </validation-message>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-1 btn-submit">
+    <div class="col-12 d-flex justify-content-end">
+      <button
+        mat-flat-button
+        color="primary"
+        type="submit"
+        (click)="onSubmit()"
+      >
+        Submit
+      </button>
+    </div>
+  </div>
+</form>
