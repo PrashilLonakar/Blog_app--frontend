@@ -25,8 +25,8 @@
             </button>
           </mat-menu>
         </div>
-        <div class="profile-username d-flex align-items-center">
-          <p class="me-3 fw-bolder">
+        <div class="profile-username d-flex align-items-end pb-2">
+          <span class="me-3 fw-bolder">
             {{
               profile?.role !== "admin"
                 ? profile?.firstname
@@ -36,7 +36,7 @@
                 ? profile?.firstname + " (Admin)"
                 : "Admin"
             }}
-          </p>
+          </span>
         </div>
       </div>
     </div>
