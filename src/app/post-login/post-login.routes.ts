@@ -10,8 +10,8 @@ export const POST_ROUTES: Routes = [
     children: [
       {
         path: '',
-        loadComponent: () =>
-          import('./client/client.component').then((m) => m.ClientComponent),
+        loadChildren: () =>
+          import('./client/client.routes').then((m) => m.CLIENT_ROUTES),
       },
       {
         path: 'admin',

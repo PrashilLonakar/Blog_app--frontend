@@ -87,9 +87,6 @@ export class AddEditComponent {
       if (data['btnData']) {
         this.buttonContent = data['btnData'];
       }
-      if (data['isBtnData']) {
-        this.isBthShow = data['isBtnData'];
-      }
     });
   }
 
