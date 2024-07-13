@@ -30,7 +30,12 @@ export const POST_ROUTES: Routes = [
           breadcrumbs: [
             {
               label: 'Profile Setting',
-              path: '/profile-setting',
+              path: '/admin/profile-setting',
+              isClickable: false,
+            },
+            {
+              label: 'form',
+              path: '/admin/profile-setting',
               isClickable: false,
             },
           ],
