@@ -1,3 +1,6 @@
-<div class="main-content-client p-3">
-  <router-outlet></router-outlet>
+<div class="main-content-client">
+  <navbar [isToggleIconShow]="showToggleIcon"></navbar>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
 </div>
