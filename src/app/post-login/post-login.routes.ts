@@ -18,6 +18,24 @@ export const POST_ROUTES: Routes = [
         loadChildren: () =>
           import('./admin/admin.routes').then((m) => m.ADMIN_ROUTES),
       },
+      {
+        path: 'profile-setting',
+        loadComponent: () =>
+          import('./common/profile-setting/profile-setting.component').then(
+            (m) => m.ProfileSettingComponent
+          ),
+        data: {
+          title: 'Profile Setting',
+          isBtnData: false,
+          breadcrumbs: [
+            {
+              label: 'Profile Setting',
+              path: '/profile-setting',
+              isClickable: false,
+            },
+          ],
+        },
+      },
     ],
   },
 ];
