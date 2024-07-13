@@ -1,20 +1,20 @@
 import { Routes } from '@angular/router';
 
-export const POST_ROUTES: Routes = [
+export const CATEGORY_ROUTES: Routes = [
   {
     path: '',
     loadComponent: () =>
       import('./list/list.component').then((m) => m.ListComponent),
     data: {
-      title: 'Post List',
+      title: 'Category List',
       breadcrumbs: [
         { label: 'Admin', path: 'admin', isClickable: false },
-        { label: 'Post List', path: '/admin/post', isClickable: true },
+        { label: 'Category List', path: '/admin/category', isClickable: true },
       ],
       isBtnData: true,
       btnData: {
-        label: 'Add Post',
-        path: '/admin/post/add',
+        label: 'Add Category',
+        path: '/admin/category/add',
       },
     },
   },
@@ -23,12 +23,16 @@ export const POST_ROUTES: Routes = [
     loadComponent: () =>
       import('./add-edit/add-edit.component').then((m) => m.AddEditComponent),
     data: {
-      title: 'Add Post',
-      isBtnData: true,
+      title: 'Add Category',
+      isBtnData: false,
       breadcrumbs: [
         { label: 'Admin', path: 'admin', isClickable: false },
-        { label: 'Post List', path: '/admin/post', isClickable: true },
-        { label: 'Add Post', path: '/admin/post/add', isClickable: true },
+        { label: 'Category List', path: '/admin/category', isClickable: true },
+        {
+          label: 'Add Category',
+          path: '/admin/category/add',
+          isClickable: true,
+        },
       ],
     },
   },
@@ -37,12 +41,16 @@ export const POST_ROUTES: Routes = [
     loadComponent: () =>
       import('./add-edit/add-edit.component').then((m) => m.AddEditComponent),
     data: {
-      title: 'Update Post',
+      title: 'Update Category',
       isBtnData: false,
       breadcrumbs: [
         { label: 'Admin', path: 'admin', isClickable: false },
-        { label: 'Post List', path: '/admin/post', isClickable: true },
-        { label: 'update Post', path: '/admin/post/edit', isClickable: true },
+        { label: 'Category List', path: '/admin/category', isClickable: true },
+        {
+          label: 'update Category',
+          path: '/admin/category/edit/:id',
+          isClickable: false,
+        },
       ],
     },
   },

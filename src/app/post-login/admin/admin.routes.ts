@@ -11,6 +11,11 @@ export const ADMIN_ROUTES: Routes = [
         loadChildren: () =>
           import('./post/post.routes').then((m) => m.POST_ROUTES),
       },
+      {
+        path: 'category',
+        loadChildren: () =>
+          import('./category/category.routes').then((m) => m.CATEGORY_ROUTES),
+      },
     ],
   },
 ];
