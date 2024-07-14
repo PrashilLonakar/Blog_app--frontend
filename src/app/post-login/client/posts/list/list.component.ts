@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MatChipsModule } from '@angular/material/chips';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-list',
@@ -22,6 +23,7 @@ import { MatChipsModule } from '@angular/material/chips';
     MatFormFieldModule,
     FormsModule,
     MatChipsModule,
+    CommonModule,
   ],
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss',
@@ -46,19 +48,23 @@ export class ListComponent {
     this.settingSubHeader();
     this.posts = [
       {
-        userName: 'Shiba Inu',
-        categoryName: 'Dog Breed',
+        firstName: 'Shiba Inu',
+        userName: 'Dog Breed',
         userImg: '',
         postImg: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
+        date: '2015-03-25',
+        title: 'About Shiba Inu',
         description: `The Shiba Inu is the smallest of the six original and distinct spitz
           breeds of dog from Japan. A small, agile dog that copes very well with
           mountainous terrain, the Shiba Inu was originally bred for hunting.`,
       },
       {
-        userName: 'Shiba Inu',
-        categoryName: 'Dog Breed',
+        firstName: 'Shiba Inu',
+        userName: 'Dog Breed',
         userImg: '',
         postImg: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
+        date: '2022-03-25',
+        title: 'Why Shiba Inu',
         description: `The Shiba Inu is the smallest of the six original and distinct spitz
           breeds of dog from Japan. A small, agile dog that copes very well with
           mountainous terrain, the Shiba Inu was originally bred for hunting.`,

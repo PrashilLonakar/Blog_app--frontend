@@ -7,7 +7,7 @@ export const CLIENT_ROUTES: Routes = [
     component: ClientComponent,
     children: [
       {
-        path: 'post',
+        path: 'posts',
         loadChildren: () =>
           import('./posts/posts.routes').then((m) => m.POSTS_ROUTES),
       },

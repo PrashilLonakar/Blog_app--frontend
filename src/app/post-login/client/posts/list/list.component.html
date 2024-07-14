@@ -6,19 +6,26 @@
 ></sub-header>
 
 <div class="row">
-  <div class="col-8">
+  <div class="col-8 posts-list-container">
     @for (post of posts; track post) {
-    <mat-card class="example-card mb-5 mat-elevation-z8" appearance="outlined">
+    <mat-card
+      class="example-card mb-5 mat-elevation-z8 post-content"
+      appearance="outlined"
+    >
       <mat-card-header>
         <div mat-card-avatar class="example-header-image">
           <mat-icon>account_circle</mat-icon>
         </div>
-        <mat-card-title>{{ post?.userName }}</mat-card-title>
-        <mat-card-subtitle>{{ post?.categoryName }}</mat-card-subtitle>
+        <mat-card-title>{{ post?.firstName }}</mat-card-title>
+        <mat-card-subtitle>{{ post?.userName }}</mat-card-subtitle>
       </mat-card-header>
       <img mat-card-image [src]="post?.postImg" alt="Photo of a Shiba Inu" />
-      <mat-card-content>
-        <p>
+      <mat-card-content class="mt-3 post-text-content">
+        <p class="post-date fw-normal">
+          {{ post?.date | date : "short" }}
+        </p>
+        <h3 class="post-title fw-bold">{{ post?.title }}</h3>
+        <p class="post-description">
           {{ post?.description }}
         </p>
       </mat-card-content>
@@ -30,33 +37,35 @@
     }
   </div>
   <div class="col-4">
-    <mat-card appearance="outlined" class="mat-elevation-z8 mb-4">
-      <mat-card-content>
-        <mat-form-field class="example-form-field w-100" appearance="outline">
-          <mat-label>Search</mat-label>
-          <input matInput type="text" [(ngModel)]="value" />
-          @if (value) {
-          <button
-            matSuffix
-            mat-icon-button
-            aria-label="Clear"
-            (click)="value = ''"
-          >
-            <mat-icon>close</mat-icon>
-          </button>
-          }
-        </mat-form-field>
-      </mat-card-content>
-    </mat-card>
+    <div>
+      <mat-card appearance="outlined" class="mat-elevation-z8 mb-4">
+        <mat-card-content>
+          <mat-form-field class="example-form-field w-100" appearance="outline">
+            <mat-label>Search</mat-label>
+            <input matInput type="text" [(ngModel)]="value" />
+            @if (value) {
+            <button
+              matSuffix
+              mat-icon-button
+              aria-label="Clear"
+              (click)="value = ''"
+            >
+              <mat-icon>close</mat-icon>
+            </button>
+            }
+          </mat-form-field>
+        </mat-card-content>
+      </mat-card>
 
-    <mat-card appearance="outlined" class="mat-elevation-z8 mb-4">
-      <mat-card-content>
-        <mat-chip-set class="d-flex chip-list" aria-label="Cutest dog breeds">
-          @for (dog of bestBoys; track dog) {
-          <mat-chip selected>{{ dog }}</mat-chip>
-          }
-        </mat-chip-set>
-      </mat-card-content>
-    </mat-card>
+      <mat-card appearance="outlined" class="mat-elevation-z8 mb-4">
+        <mat-card-content>
+          <mat-chip-set class="d-flex chip-list" aria-label="Cutest dog breeds">
+            @for (dog of bestBoys; track dog) {
+            <mat-chip selected>{{ dog }}</mat-chip>
+            }
+          </mat-chip-set>
+        </mat-card-content>
+      </mat-card>
+    </div>
   </div>
 </div>
