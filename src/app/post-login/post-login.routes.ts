@@ -9,7 +9,7 @@ export const POST_ROUTES: Routes = [
     component: PostLoginComponent,
     children: [
       {
-        path: 'client',
+        path: '',
         loadChildren: () =>
           import('./client/client.routes').then((m) => m.CLIENT_ROUTES),
       },
