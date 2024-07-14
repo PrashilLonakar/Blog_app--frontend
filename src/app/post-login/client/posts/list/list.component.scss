@@ -1,0 +1,35 @@
+.mat-mdc-chip-set {
+    max-width: 200px;
+}
+
+.chip-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    /* Adjust spacing between chips */
+    max-width: 100%;
+
+    /* Ensure the container respects parent width */
+    ::ng-deep .mat-mdc-chip-action {
+        cursor: pointer;
+        /* Adjust padding as needed */
+    }
+}
+
+
+.posts-list-container {
+    height: 85vh;
+    overflow-y: auto;
+
+    .mat-mdc-card-avatar {
+        .mat-icon {
+            font-size: 40px;
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    .post-content {
+        .post-text-content {}
+    }
+}

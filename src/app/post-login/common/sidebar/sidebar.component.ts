@@ -29,6 +29,7 @@ export class SidebarComponent {
   opened: boolean = true;
   sideBarMenu: any[] = [];
   readonly panelOpenState = signal(false);
+  showToggleIcon: boolean = true;
 
   constructor() {
     this.sideBarMenu = SidebarConstants.menusForAdmin;
