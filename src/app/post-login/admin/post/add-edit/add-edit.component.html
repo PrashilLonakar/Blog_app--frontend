@@ -1,0 +1,130 @@
+<sub-header
+  [title]="pageName"
+  [breadCrumbsArr]="breadCrumbs"
+  [btn]="buttonContent"
+  [isBtnShow]="isBthShow"
+></sub-header>
+
+<form [formGroup]="postForm" (keyup.enter)="onSubmit()">
+  <div class="form-container">
+    <div class="row mb-3">
+      <div class="col-12 file-upload-wrapper-col">
+        <div
+          class="file-upload-wrapper"
+          [class.success]="uploadSuccess"
+          [class.error]="uploadError"
+          (drop)="onFileDrop($event)"
+          (dragover)="onDragOver($event)"
+        >
+          <input
+            type="file"
+            accept="image/*"
+            (change)="onFileChange($event)"
+            hidden
+            #fileInput
+            formControlName="mainImageUrl"
+          />
+          <div class="file-dropper" (click)="fileInput.click()">
+            @if (!imagePreview()) {
+            <mat-icon>upload</mat-icon>
+            <p>Upload your Profile pic</p>
+            } @if (imageName()) {
+            <div>
+              <div *ngIf="selectedFile || imagePreview">
+                <img
+                  [src]="imagePreview()"
+                  alt="Image Preview"
+                  class="image-preview"
+                />
+                <p>
+                  <span class="image-name">{{ imageName() }}</span> ({{
+                    fileSize()
+                  }}
+                  KB)
+                </p>
+                <mat-icon class="delete-icon" (click)="removeImage()"
+                  >delete</mat-icon
+                >
+              </div>
+            </div>
+            }
+          </div>
+        </div>
+        <!-- @if (this.isSubmit() && !imagePreview()) {
+      <mat-error class="d-flex error-msg"> Profile Pic is mandatory </mat-error>
+      } -->
+      </div>
+    </div>
+
+    <div class="row mb-1">
+      <div class="col-6">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Title</mat-label>
+          <input matInput placeholder="Your title" formControlName="title" />
+
+          <mat-error class="d-flex mt-1">
+            <validation-message
+              [control]="postForm.controls['title']"
+              [propertyLabel]="'Title'"
+            >
+            </validation-message>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Category</mat-label>
+          <mat-select formControlName="categoryId">
+            @for (food of foods; track food) {
+            <mat-option [value]="food.value">{{ food.viewValue }}</mat-option>
+            }
+          </mat-select>
+          <mat-error class="d-flex mt-1">
+            <validation-message
+              [control]="postForm.controls['categoryId']"
+              [propertyLabel]="'Category'"
+            >
+            </validation-message>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-12">
+        <mat-form-field
+          class="example-full-width"
+          appearance="outline"
+          class="w-100"
+        >
+          <mat-label>Content</mat-label>
+          <textarea
+            matInput
+            placeholder="Yours content"
+            formControlName="content"
+          ></textarea>
+          <mat-error class="d-flex mt-1">
+            <validation-message
+              [control]="postForm.controls['content']"
+              [propertyLabel]="'Content'"
+            >
+            </validation-message>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-1 btn-submit">
+    <div class="col-12 d-flex justify-content-end">
+      <button
+        mat-flat-button
+        color="primary"
+        type="submit"
+        (click)="onSubmit()"
+      >
+        Submit
+      </button>
+    </div>
+  </div>
+</form>

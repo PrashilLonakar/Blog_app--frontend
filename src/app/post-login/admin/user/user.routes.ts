@@ -1,20 +1,20 @@
 import { Routes } from '@angular/router';
 
-export const POST_ROUTES: Routes = [
+export const USER_ROUTES: Routes = [
   {
     path: '',
     loadComponent: () =>
       import('./list/list.component').then((m) => m.ListComponent),
     data: {
-      title: 'Post List',
+      title: 'User List',
       breadcrumbs: [
         { label: 'Admin', path: 'admin', isClickable: false },
-        { label: 'Post List', path: '/admin/post', isClickable: true },
+        { label: 'User List', path: '/admin/user', isClickable: true },
       ],
       isBtnData: true,
       btnData: {
-        label: 'Add Post',
-        path: '/admin/post/add',
+        label: 'Add User',
+        path: '/admin/user/add',
       },
     },
   },
@@ -23,12 +23,16 @@ export const POST_ROUTES: Routes = [
     loadComponent: () =>
       import('./add-edit/add-edit.component').then((m) => m.AddEditComponent),
     data: {
-      title: 'Add Post',
-      isBtnData: true,
+      title: 'Add User',
+      isBtnData: false,
       breadcrumbs: [
         { label: 'Admin', path: 'admin', isClickable: false },
-        { label: 'Post List', path: '/admin/post', isClickable: true },
-        { label: 'Add Post', path: '/admin/post/add', isClickable: true },
+        { label: 'User List', path: '/admin/user', isClickable: true },
+        {
+          label: 'Add User',
+          path: '/admin/user/add',
+          isClickable: true,
+        },
       ],
     },
   },
@@ -37,12 +41,16 @@ export const POST_ROUTES: Routes = [
     loadComponent: () =>
       import('./add-edit/add-edit.component').then((m) => m.AddEditComponent),
     data: {
-      title: 'Update Post',
+      title: 'Update User',
       isBtnData: false,
       breadcrumbs: [
         { label: 'Admin', path: 'admin', isClickable: false },
-        { label: 'Post List', path: '/admin/post', isClickable: true },
-        { label: 'update Post', path: '/admin/post/edit', isClickable: true },
+        { label: 'User List', path: '/admin/user', isClickable: true },
+        {
+          label: 'update User',
+          path: '/admin/user/edit/:id',
+          isClickable: false,
+        },
       ],
     },
   },
