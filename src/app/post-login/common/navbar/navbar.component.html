@@ -2,6 +2,7 @@
   <div class="container-fluid">
     <div class="d-flex justify-content-between w-100">
       <button
+        *ngIf="isToggleIconShow"
         mat-icon-button
         class="toggle-icon"
         aria-label="Example icon-button with menu icon"
@@ -9,8 +10,20 @@
       >
         <mat-icon>menu</mat-icon>
       </button>
+      <div
+        *ngIf="!isToggleIconShow"
+        class="sidenav-header d-flex gap-3 align-items-center"
+      >
+        <img
+          class="app-logo-main"
+          src="assets/images/app-logo.png"
+          alt="blog-icon"
+        />
+        <h3 class="app-title d-flex align-items-center mb-0">Blog App</h3>
+      </div>
+
       <div class="profile-content d-flex">
-        <div class="profile-icons me-3">
+        <div class="profile-icons me-3 d-flex align-items-center">
           <button mat-mini-fab [matMenuTriggerFor]="menu" class="profile-btn">
             <mat-icon>account_circle</mat-icon>
           </button>
@@ -25,7 +38,7 @@
             </button>
           </mat-menu>
         </div>
-        <div class="profile-username d-flex align-items-end pb-2">
+        <div class="profile-username d-flex align-items-center">
           <span class="me-3 fw-bolder">
             {{
               profile?.role !== "admin"

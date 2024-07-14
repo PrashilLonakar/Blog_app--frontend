@@ -76,6 +76,10 @@ export class AddEditComponent {
   ngOnInit() {
     let data: any = [];
     this.setUpuserForm(data);
+    this.settingSubHeader();
+  }
+
+  settingSubHeader() {
     this.route.data.subscribe((data) => {
       const title = data['title'];
       if (title) {
