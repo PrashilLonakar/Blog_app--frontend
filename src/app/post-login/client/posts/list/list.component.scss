@@ -1,0 +1,17 @@
+.mat-mdc-chip-set {
+    max-width: 200px;
+}
+
+.chip-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    /* Adjust spacing between chips */
+    max-width: 100%;
+
+    /* Ensure the container respects parent width */
+    ::ng-deep .mat-mdc-chip-action {
+        cursor: pointer;
+        /* Adjust padding as needed */
+    }
+}

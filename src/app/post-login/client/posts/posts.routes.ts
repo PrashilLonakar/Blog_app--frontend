@@ -6,8 +6,11 @@ export const POSTS_ROUTES: Routes = [
     loadComponent: () =>
       import('./list/list.component').then((m) => m.ListComponent),
     data: {
-      title: 'Post List',
-      breadcrumbs: [{ label: 'Post List', path: '/post', isClickable: false }],
+      title: 'Posts',
+      breadcrumbs: [
+        { label: 'Dashboard', path: '/dashboard', isClickable: false },
+        { label: 'Posts', path: '/post', isClickable: false },
+      ],
     },
   },
   // {
