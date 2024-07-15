@@ -2,6 +2,11 @@
     max-width: 200px;
 }
 
+::-webkit-scrollbar {
+    width: 0.25em;
+    height: 0.25em
+}
+
 .chip-list {
     display: flex;
     flex-wrap: wrap;
@@ -18,10 +23,10 @@
 
 
 .posts-list-container {
-    height: 85vh;
+    height: 78vh;
     overflow-y: auto;
 
-    .mat-mdc-card-avatar {
+    ​ .mat-mdc-card-avatar {
         .mat-icon {
             font-size: 40px;
             width: 40px;
@@ -31,5 +36,38 @@
 
     .post-content {
         .post-text-content {}
+
+        ::ng-deep .post-actions {
+
+            .like-content,
+            .unlike-content {
+                .mdc-fab {
+                    background-color: transparent;
+                    border-radius: 50%;
+                    box-shadow: none;
+
+                    .svg-inline--fa {
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+
+                .btn-like,
+                .btn-unlike {
+                    cursor: pointer;
+                    color: #24408F;
+                }
+
+
+
+                .like-count,
+                .unlike-count {
+                    width: 30px;
+                    height: 40px;
+                    font-size: 22px;
+                }
+            }
+        }
     }
+
 }
