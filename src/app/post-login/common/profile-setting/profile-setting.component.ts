@@ -20,6 +20,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { SubHeaderComponent } from '../sub-header/sub-header.component';
 import { ValidationMessageComponent } from '../../../core/validation/validation-message/validation-message.component';
 import { ValidationHelper } from '../../../core/helper/validation.helper';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-profile-setting',
@@ -36,6 +37,7 @@ import { ValidationHelper } from '../../../core/helper/validation.helper';
     MatButtonModule,
     CommonModule,
     MatSelectModule,
+    NavbarComponent,
   ],
   templateUrl: './profile-setting.component.html',
   styleUrl: './profile-setting.component.scss',

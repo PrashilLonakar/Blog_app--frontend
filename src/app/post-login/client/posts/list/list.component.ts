@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { SubHeaderComponent } from '../../../common/sub-header/sub-header.component';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -35,6 +35,7 @@ import { faThumbsDown as faThumbsDownRegular } from '@fortawesome/free-regular-s
     MatChipsModule,
     CommonModule,
     FontAwesomeModule,
+    RouterLink,
   ],
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss',
@@ -70,6 +71,7 @@ export class ListComponent {
     this.settingSubHeader();
     this.posts = [
       {
+        id: 1,
         firstName: 'Shiba Inu',
         userName: 'Dog Breed',
         userImg: '',
@@ -85,6 +87,7 @@ export class ListComponent {
         unlikeCount: 1,
       },
       {
+        id: 2,
         firstName: 'Shiba Inu',
         userName: 'Dog Breed',
         userImg: '',
@@ -100,6 +103,7 @@ export class ListComponent {
         unlikeCount: 2,
       },
       {
+        id: 3,
         firstName: 'Shiba Inu',
         userName: 'Dog Breed',
         userImg: '',
