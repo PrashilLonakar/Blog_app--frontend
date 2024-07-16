@@ -17,6 +17,12 @@
             }
         }
     }
+
+    .profile-admin {
+        a {
+            color: var(--primary-dark-0);
+        }
+    }
 }
 
 ::ng-deep .mat-mdc-menu-panel {
