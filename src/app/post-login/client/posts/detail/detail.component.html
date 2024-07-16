@@ -7,14 +7,14 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-12 posts-detail-container">
+    <div class="col-12 post-detail-container">
       <mat-card
         class="example-card mb-5 mat-elevation-z8 post-content"
         appearance="outlined"
       >
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image">
-            <mat-icon>account_circle</mat-icon>
+        <mat-card-header class="post-header">
+          <div mat-card-avatar class="user-profile-img">
+            <mat-icon class="user-profile-icon">account_circle</mat-icon>
           </div>
           <mat-card-title>{{ post?.firstName }}</mat-card-title>
           <mat-card-subtitle>{{ post?.userName }}</mat-card-subtitle>
