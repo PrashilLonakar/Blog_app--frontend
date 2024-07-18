@@ -17,6 +17,12 @@
             }
         }
     }
+
+    .profile-admin {
+        a {
+            color: var(--primary-dark-0);
+        }
+    }
 }
 
 ::ng-deep .mat-mdc-menu-panel {
@@ -25,4 +31,5 @@
 
 .sidenav-header {
     padding: 10px 0px 0px 10px;
+    cursor: pointer;
 }

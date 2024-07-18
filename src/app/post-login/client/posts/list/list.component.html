@@ -12,7 +12,7 @@
       class="example-card mb-5 mat-elevation-z8 post-content"
       appearance="outlined"
     >
-      <mat-card-header>
+      <mat-card-header class="post-header">
         <div mat-card-avatar class="example-header-image">
           <mat-icon>account_circle</mat-icon>
         </div>
@@ -24,7 +24,12 @@
         <p class="post-date fw-normal">
           {{ post?.date | date : "short" }}
         </p>
-        <h3 class="post-title fw-bold">{{ post?.title }}</h3>
+        <a
+          class="post-title fw-bold ps-0"
+          mat-button
+          [routerLink]="['/posts/detail', post?.id]"
+          >{{ post?.title }}</a
+        >
         <p class="post-description">
           {{ post?.description }}
         </p>
@@ -78,6 +83,7 @@
         <mat-card-content>
           <mat-form-field class="example-form-field w-100" appearance="outline">
             <mat-label>Search</mat-label>
+            <mat-icon matPrefix>search</mat-icon>
             <input matInput type="text" [(ngModel)]="value" />
             @if (value) {
             <button
@@ -102,6 +108,12 @@
           </mat-chip-set>
         </mat-card-content>
       </mat-card>
+
+      <!-- <mat-card appearance="outlined" class="mat-elevation-z8">
+        <mat-card-content>
+          <button mat-flat-button class="rounded w-100">Search</button>
+        </mat-card-content>
+      </mat-card> -->
     </div>
   </div>
 </div>
