@@ -7,6 +7,11 @@ export const ADMIN_ROUTES: Routes = [
     component: AdminComponent,
     children: [
       {
+        path: '',
+        redirectTo: 'post',
+        pathMatch: 'full',
+      },
+      {
         path: 'post',
         loadChildren: () =>
           import('./post/post.routes').then((m) => m.POST_ROUTES),
