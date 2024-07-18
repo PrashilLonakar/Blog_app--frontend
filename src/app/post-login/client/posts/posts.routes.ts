@@ -13,40 +13,17 @@ export const POSTS_ROUTES: Routes = [
       ],
     },
   },
-  // {
-  //   path: 'add',
-  //   loadComponent: () =>
-  //     import('./add-edit/add-edit.component').then((m) => m.AddEditComponent),
-  //   data: {
-  //     title: 'Add User',
-  //     isBtnData: false,
-  //     breadcrumbs: [
-  //       { label: 'Admin', path: 'admin', isClickable: false },
-  //       { label: 'User List', path: '/admin/user', isClickable: true },
-  //       {
-  //         label: 'Add User',
-  //         path: '/admin/user/add',
-  //         isClickable: true,
-  //       },
-  //     ],
-  //   },
-  // },
-  // {
-  //   path: 'edit/:id',
-  //   loadComponent: () =>
-  //     import('./add-edit/add-edit.component').then((m) => m.AddEditComponent),
-  //   data: {
-  //     title: 'Update User',
-  //     isBtnData: false,
-  //     breadcrumbs: [
-  //       { label: 'Admin', path: 'admin', isClickable: false },
-  //       { label: 'User List', path: '/admin/user', isClickable: true },
-  //       {
-  //         label: 'update User',
-  //         path: '/admin/user/edit/:id',
-  //         isClickable: false,
-  //       },
-  //     ],
-  //   },
-  // },
+  {
+    path: 'detail/:id',
+    loadComponent: () =>
+      import('./detail/detail.component').then((m) => m.DetailComponent),
+    data: {
+      title: 'Post-detail',
+      breadcrumbs: [
+        { label: 'Dashboard', path: '/dashboard', isClickable: false },
+        { label: 'Posts', path: '/posts', isClickable: true },
+        { label: 'detail', path: '/detail', isClickable: false },
+      ],
+    },
+  },
 ];

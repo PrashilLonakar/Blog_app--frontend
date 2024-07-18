@@ -7,12 +7,12 @@
 
 <div class="row">
   <div class="col-8 posts-list-container">
-    @for (post of posts; track post) {
+    @for (post of posts; track post;) {
     <mat-card
       class="example-card mb-5 mat-elevation-z8 post-content"
       appearance="outlined"
     >
-      <mat-card-header>
+      <mat-card-header class="post-header">
         <div mat-card-avatar class="example-header-image">
           <mat-icon>account_circle</mat-icon>
         </div>
@@ -24,7 +24,12 @@
         <p class="post-date fw-normal">
           {{ post?.date | date : "short" }}
         </p>
-        <h3 class="post-title fw-bold">{{ post?.title }}</h3>
+        <a
+          class="post-title fw-bold ps-0"
+          mat-button
+          [routerLink]="['/posts/detail', post?.id]"
+          >{{ post?.title }}</a
+        >
         <p class="post-description">
           {{ post?.description }}
         </p>

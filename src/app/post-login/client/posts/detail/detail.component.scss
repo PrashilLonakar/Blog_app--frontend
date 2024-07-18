@@ -1,39 +1,13 @@
-.mat-mdc-chip-set {
-    max-width: 200px;
-}
-
-::-webkit-scrollbar {
-    width: 0.25em;
-    height: 0.25em
-}
-
-.chip-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    /* Adjust spacing between chips */
-    max-width: 100%;
-
-    /* Ensure the container respects parent width */
-    ::ng-deep .mat-mdc-chip-action {
-        cursor: pointer;
-        /* Adjust padding as needed */
-    }
-}
-
-
-::ng-deep .posts-list-container {
+::ng-deep .post-detail-container {
     height: calc(100vh - 174px);
     overflow-y: auto;
 
     .post-content {
         .post-header {
-            .mat-mdc-card-avatar {
-                .mat-icon {
-                    font-size: 40px;
-                    width: 40px;
-                    height: 40px;
-                }
+            .user-profile-icon {
+                font-size: 40px;
+                width: 40px;
+                height: 40px;
             }
         }
 
@@ -41,11 +15,11 @@
             .post-title {
                 font-size: 1.75rem;
                 color: var(--primary-dark-0);
-            }
 
-            .post-title:hover {
-                cursor: pointer;
-                text-decoration: underline;
+                a:hover {
+                    cursor: pointer;
+                    text-decoration: underline;
+                }
             }
         }
 
@@ -82,5 +56,9 @@
             }
         }
     }
+}
 
+::-webkit-scrollbar {
+    width: 0.25em;
+    height: 0.25em
 }

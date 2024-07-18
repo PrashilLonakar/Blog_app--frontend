@@ -13,6 +13,7 @@
       <div
         *ngIf="!isToggleIconShow"
         class="sidenav-header d-flex gap-3 align-items-center"
+        [routerLink]="['/posts']"
       >
         <img
           class="app-logo-main"
@@ -23,6 +24,11 @@
       </div>
 
       <div class="profile-content d-flex">
+        @if (profile.role == 'admin') {
+        <div class="profile-admin d-flex align-items-center">
+          <a class="me-5 fw-bolder" [routerLink]="['/admin/post']">Admin</a>
+        </div>
+        }
         <div class="profile-icons me-3 d-flex align-items-center">
           <button mat-mini-fab [matMenuTriggerFor]="menu" class="profile-btn">
             <mat-icon>account_circle</mat-icon>
@@ -40,15 +46,7 @@
         </div>
         <div class="profile-username d-flex align-items-center">
           <span class="me-3 fw-bolder">
-            {{
-              profile?.role !== "admin"
-                ? profile?.firstname
-                  ? profile?.firstname
-                  : ""
-                : profile?.firstname
-                ? profile?.firstname + " (Admin)"
-                : "Admin"
-            }}
+            {{ profile?.firstname ? profile?.firstname : "Username" }}
           </span>
         </div>
       </div>

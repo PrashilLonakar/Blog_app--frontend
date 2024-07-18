@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './common/navbar/navbar.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
@@ -26,9 +26,5 @@ export class PostLoginComponent {
   isAdminUrl: boolean = false;
   //mode: { value: MatDrawerMode } = { value: 'side' };
 
-  constructor(private router: Router) {
-    if (this.router.url.includes('admin')) {
-      this.isAdminUrl = true;
-    }
-  }
+  constructor() {}
 }
