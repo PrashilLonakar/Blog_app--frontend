@@ -22,32 +22,34 @@
 }
 
 
-.posts-list-container {
+::ng-deep .posts-list-container {
     height: calc(100vh - 174px);
     overflow-y: auto;
 
-    ​ .mat-mdc-card-avatar {
-        .mat-icon {
-            font-size: 40px;
-            width: 40px;
-            height: 40px;
-        }
-    }
-
     .post-content {
-        .post-text-content {
-            .post-title {
-                font-size: 1.75rem;
-
-                a:hover {
-                    cursor: pointer;
-                    text-decoration: underline;
-                    color: var(--primary-dark-0);
+        .post-header {
+            .mat-mdc-card-avatar {
+                .mat-icon {
+                    font-size: 40px;
+                    width: 40px;
+                    height: 40px;
                 }
             }
         }
 
-        ::ng-deep .post-actions {
+        .post-text-content {
+            .post-title {
+                font-size: 1.75rem;
+                color: var(--primary-dark-0);
+            }
+
+            .post-title:hover {
+                cursor: pointer;
+                text-decoration: underline;
+            }
+        }
+
+        .post-actions {
 
             .like-content,
             .unlike-content {
