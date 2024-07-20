@@ -25,6 +25,12 @@ export class SidebarConstants {
           route: '/admin/category',
           tagId: 'CategoryMenuBtn',
         },
+        {
+          id: 2,
+          text: 'User',
+          route: '/admin/user',
+          tagId: 'UserMenuBtn',
+        },
       ],
     },
     {
