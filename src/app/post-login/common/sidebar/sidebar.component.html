@@ -1,0 +1,82 @@
+<div class="sidenav-container">
+  <mat-sidenav-container>
+    <mat-sidenav
+      #sidenav
+      mode="side"
+      [(opened)]="opened"
+      (opened)="events.push('open!')"
+      (closed)="events.push('close!')"
+    >
+      <div class="sidenav-content">
+        <div
+          class="sidenav-header d-flex gap-3 align-items-center"
+          [routerLink]="['/admin']"
+        >
+          <img
+            class="app-logo-main"
+            src="assets/images/app-logo.png"
+            alt="blog-icon"
+          />
+          <h3 class="app-title d-flex align-items-center mb-0">Blog App</h3>
+        </div>
+        <div class="sidenav-tabs mt-5">
+          <div class="sidenav-btn-tab">
+            @for (menu of sideBarMenu; track menu) {
+            <div>
+              @if (menu.isChildren) {
+              <mat-accordion>
+                <mat-expansion-panel
+                  (opened)="panelOpenState.set(true)"
+                  (closed)="panelOpenState.set(false)"
+                >
+                  <mat-expansion-panel-header>
+                    <mat-panel-title> {{ menu?.text }} </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  @if (menu.children) { @for (child of menu.children; track
+                  child) {
+                  <p>
+                    <button
+                      mat-button
+                      class="main-tabs d-flex justify-content-start fw-bolder"
+                      routerLinkActive="active-main-tabs"
+                      [routerLink]="child.route"
+                      [id]="child.tagId"
+                    >
+                      <span class="flex-all-center">
+                        <span>{{ child?.text }}</span>
+                      </span>
+                    </button>
+                  </p>
+                  }}
+                </mat-expansion-panel>
+              </mat-accordion>
+              } @if (!menu.isChildren) {
+              <button
+                mat-button
+                class="main-tabs d-flex justify-content-start fw-bolder"
+                routerLinkActive="active-main-tabs"
+                [routerLink]="menu.route"
+                [id]="menu.tagId"
+              >
+                <span class="flex-all-center">
+                  <span>{{ menu?.text }}</span>
+                </span>
+              </button>
+              }
+            </div>
+            }
+          </div>
+        </div>
+      </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <navbar
+        (sideNavOpen)="sidenav.toggle()"
+        [isToggleIconShow]="showToggleIcon"
+      ></navbar>
+      <div class="p-3">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
