@@ -1,0 +1,19 @@
+{
+  "routes": [
+    "/",
+    "/admin",
+    "/admin/category",
+    "/admin/category/add",
+    "/admin/post",
+    "/admin/post/add",
+    "/admin/user",
+    "/admin/user/add",
+    "/auth",
+    "/auth/change-password",
+    "/auth/forgot-password",
+    "/auth/login",
+    "/auth/registration",
+    "/posts",
+    "/profile-setting"
+  ]
+}
