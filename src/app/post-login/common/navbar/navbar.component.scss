@@ -1,0 +1,35 @@
+.navbar {
+    .toggle-icon {
+        color: #fff;
+    }
+}
+
+.profile-content {
+    .profile-icons {
+        .profile-btn {
+            border-radius: 50%;
+            background-color: #fff;
+
+            ::ng-deep .mat-icon {
+                width: 100%;
+                height: 100%;
+                font-size: 2.5rem;
+            }
+        }
+    }
+
+    .profile-admin {
+        a {
+            color: var(--primary-dark-0);
+        }
+    }
+}
+
+::ng-deep .mat-mdc-menu-panel {
+    width: 200px;
+}
+
+.sidenav-header {
+    padding: 10px 0px 0px 10px;
+    cursor: pointer;
+}

@@ -1,0 +1,64 @@
+::ng-deep .post-detail-container {
+    height: calc(100vh - 174px);
+    overflow-y: auto;
+
+    .post-content {
+        .post-header {
+            .user-profile-icon {
+                font-size: 40px;
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        .post-text-content {
+            .post-title {
+                font-size: 1.75rem;
+                color: var(--primary-dark-0);
+
+                a:hover {
+                    cursor: pointer;
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .post-actions {
+
+            .like-content,
+            .unlike-content {
+                .mdc-fab {
+                    background-color: transparent;
+                    border-radius: 50%;
+                    box-shadow: none;
+
+                    .svg-inline--fa {
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+
+                .btn-like,
+                .btn-unlike {
+                    cursor: pointer;
+                    color: var(--primary-dark-0);
+                }
+
+
+
+                .like-count,
+                .unlike-count {
+                    width: 30px;
+                    height: 40px;
+                    font-size: 22px;
+                    color: var(--primary-dark-0);
+                }
+            }
+        }
+    }
+}
+
+::-webkit-scrollbar {
+    width: 0.25em;
+    height: 0.25em
+}

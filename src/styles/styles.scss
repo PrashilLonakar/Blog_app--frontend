@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import "material-theming.scss";
+@import "common.scss";
 
 html,
 body {
@@ -17,4 +19,18 @@ body {
 
 .w-35 {
     width: 35%;
+}
+
+.app-logo-main {
+    height: 80px;
+    width: 80px;
+}
+
+.navbar {
+    height: 80px;
+}
+
+.sidenav-content,
+.navbar-container {
+    background-color: var(--primary-color) !important;
 }
